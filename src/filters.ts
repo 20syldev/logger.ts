@@ -29,7 +29,7 @@ export function cleanByAge(logs: LogEntry[], maxAge: number): LogEntry[] {
  * @returns A new sorted array of entries
  */
 export function sortLogs(logs: LogEntry[], sort: string, order: "asc" | "desc"): LogEntry[] {
-    if (!sort) return order === "desc" ? [...logs].reverse() : logs;
+    if (!sort) return order === "desc" ? [...logs].reverse() : [...logs];
     const sorted = [...logs].sort((a, b) => {
         const aVal = a[sort];
         const bVal = b[sort];
@@ -50,7 +50,7 @@ export function sortLogs(logs: LogEntry[], sort: string, order: "asc" | "desc"):
  * @returns Entries matching all filter criteria
  */
 export function filterLogs(logs: LogEntry[], filters: Record<string, string>): LogEntry[] {
-    if (Object.keys(filters).length === 0) return logs;
+    if (Object.keys(filters).length === 0) return [...logs];
     return logs.filter((entry) =>
         Object.entries(filters).every(([key, value]) => String(entry[key]) === value),
     );
