@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "@20syldev/logger.ts",
     "description": "A minimalist Node.js module to generate, format, and serve structured logs as JSON.",
     "main": "dist/logger.js",
